@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nmt.kancollemanager.ExpeditionActivity"
+    android:background="#000">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/working_list__"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/expedition_working"
+            android:id="@+id/working1" />
+
+        <include
+            layout="@layout/expedition_working"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/working2"
+            android:layout_below="@+id/working1" />
+
+        <include
+            layout="@layout/expedition_working"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/working3"
+            android:layout_below="@+id/working2"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/working_list" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/expedition_line"
+        android:id="@+id/list_title"
+        android:layout_below="@+id/working_list"
+        android:layout_marginBottom="1dp" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/list_title" />
+
+</RelativeLayout>
