@@ -25,9 +25,17 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:id="@+id/id"
+                android:text="No"
+                style="@style/expedition_line_text_light"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/name"
                 android:text="名称"
-                style="@style/expedition_line_text"
+                style="@style/expedition_line_text_light"
                 android:layout_weight="4" />
 
             <TextView
@@ -35,8 +43,16 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/time"
                 android:text="時間"
-                style="@style/expedition_line_text"
-                android:layout_weight="2" />
+                style="@style/expedition_line_text_light"
+                android:layout_weight="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_middle">
 
             <TextView
                 android:layout_width="0dp"
@@ -44,7 +60,8 @@
                 android:id="@+id/condition"
                 android:text="編成(条件)"
                 style="@style/expedition_line_text"
-                android:layout_weight="2" />
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -52,14 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/layout_bottom">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/id"
-                android:text="No"
-                style="@style/expedition_line_text"
-                android:layout_weight="1" />
 
             <TextView
                 android:layout_width="0dp"
@@ -125,13 +134,21 @@
                 style="@style/expedition_line_text"
                 android:layout_weight="1" />
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/layout_dummy"
-        android:layout_below="@+id/layout_right"></LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_bottom2">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="報酬"
+                android:id="@+id/bonus"
+                style="@style/expedition_line_text"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -120,12 +120,14 @@ public class ExpeditionActivity extends ActionBarActivity {
             data.setAmmo(cursor.getInt(cursor.getColumnIndex("ammo")));
             data.setSteel(cursor.getInt(cursor.getColumnIndex("steel")));
             data.setBauxite(cursor.getInt(cursor.getColumnIndex("bauxite")));
+            data.setBonus(cursor.getString(cursor.getColumnIndex("bonus")));
 
             dataList.add(data);
             isEof = cursor.moveToNext();
         }
-        ExpeditionDataAdapter adapter = new ExpeditionDataAdapter(this, 0, dataList);
         ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setFastScrollEnabled(true);
+        ExpeditionDataAdapter adapter = new ExpeditionDataAdapter(this, 0, dataList);
         listView.setAdapter(adapter);
 
         // リスナー登録

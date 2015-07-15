@@ -1,6 +1,8 @@
 package com.nmt.kancollemanager;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +40,7 @@ public class ExpeditionDataAdapter extends ArrayAdapter<ExpeditionData> {
         TextView ammo = (TextView) convertView.findViewById(R.id.ammo);
         TextView steel = (TextView) convertView.findViewById(R.id.steel);
         TextView bauxite = (TextView) convertView.findViewById(R.id.bauxite);
+        TextView bonus = (TextView) convertView.findViewById(R.id.bonus);
 
         ExpeditionData data = getItem(position);
 
@@ -53,6 +56,7 @@ public class ExpeditionDataAdapter extends ArrayAdapter<ExpeditionData> {
         ammo.setText(String.valueOf(data.getAmmo()));
         steel.setText(String.valueOf(data.getSteel()));
         bauxite.setText(String.valueOf(data.getBauxite()));
+        bonus.setText(data.getBonus());
 
         return convertView;
     }
