@@ -1,5 +1,6 @@
 package com.nmt.kancollemanager;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,10 +11,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
-    boolean serviceRunning = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +40,21 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         if (v.getId() == R.id.btnService) {
             Log.d("onClick", "startService");
+
+            boolean serviceRunning = false;
+            ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+            List<ActivityManager.RunningServiceInfo> serviceList = manager.getRunningServices(Integer.MAX_VALUE);
+            for (ActivityManager.RunningServiceInfo service : serviceList) {
+                if (ExpeditionService.class.getName().equals(service.service.getClassName())) {
+                    serviceRunning = true;
+                }
+            }
+
             Intent intent = new Intent(this, ExpeditionService.class);
             if (serviceRunning) {
                 stopService(intent);
-                serviceRunning = false;
             } else {
                 startService(intent);
-                serviceRunning = true;
             }
         }
     }
